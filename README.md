@@ -2,12 +2,12 @@
 
 ## Description
 
-This repository is made to implement a game named [PacoMonkey](https://github.com/SIGGgames/PacoMonkey.git).
+This repository is made to implement a game named [PacoMonkey](https://github.com/SIGGgames/PacoMonkey.git) in [Unity](https://unity.com/products/unity-engine).
 
 
-# Version
-`Unity. Version=2022.3.14f1`
-`LibreSprite. Version=v1.2-973d0e3d-SDL`
+# Versions
+- Unity. Version = `2022.3.14f1` <br>
+- LibreSprite. Version = `v1.2-973d0e3d-SDL` <br>
 
 # Installation
 
