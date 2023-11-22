@@ -7,7 +7,7 @@ This repository is made to implement a game named [PacoMonkey](https://github.co
 
 # Version
 
-`Unity version: `
+`Unity version: 2022.3.14f1`
 # Installation
 
 ````sh
