@@ -6,8 +6,9 @@ This repository is made to implement a game named [PacoMonkey](https://github.co
 
 
 # Version
+`Unity. Version=2022.3.14f1`
+`LibreSprite. Version=v1.2-973d0e3d-SDL`
 
-`Unity version: 2022.3.14f1`
 # Installation
 
 ````sh
