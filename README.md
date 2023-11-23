@@ -30,11 +30,12 @@ git clone https://github.com/SIGGgames/PacoMonkey.git
 <!-- TODO: Add How to Play instructions -->
 <!-- TODO: Link game launcher -->
 
-## Contribution
+## Contribute
 
 PacoMonkey is an open-source project, and we welcome any contributors. If you are interested in contributing, please follow this instructions:
 
-1. Fork the repository
+1. Fork the repository (optional)
+
 2. Create your new feature branch: 
 ```sh
 git checkout -b feature/NewFeature
@@ -50,6 +51,12 @@ Note: We follow the [Conventional Commits](https://www.conventionalcommits.org/e
 git push origin feature/NewFeature
 ```
 5. Submit a pull request
+
+For more information check [CONTRIBUTING](./CONTRIBUTING.md) file.
+
+## Licence
+
+This project is under [MIT Licence](https://opensource.org/license/mit/) - see the [LICENCE.md](./LICENSE) file for details.
 
 ## Authors
 
