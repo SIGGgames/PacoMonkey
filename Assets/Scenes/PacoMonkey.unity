@@ -1261,10 +1261,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.95
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.2
-  m_GravityScale: 0.81
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1333,13 +1333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e146b4999188409b74e45508540de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5.26
-  jumpForce: 10
-  groundCheck: {fileID: 0}
-  groundCheckRadius: 0.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
