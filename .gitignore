@@ -28,8 +28,6 @@
 .vscode/
 .DS_Store
 
-plastic/
-
 # Intellij cache directory
 .idea/
 
