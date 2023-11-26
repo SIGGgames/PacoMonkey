@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D _rigidbody2D;
-    public float moveSpeed = 1f;
-    public float jumpForce = 1f;
+    public float moveSpeed = 5f;
+    public float jumpForce = 5f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-    private bool _isGrounded;
 
     private void Awake() {
         // Used to initialise an object's own reference
@@ -24,11 +23,9 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
         HandleMovement();
 
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             Jump();
         }
 
