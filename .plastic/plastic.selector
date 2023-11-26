@@ -1,4 +1,0 @@
-repository "PacoMonkey@SIGGames@cloud"
-  path "/"
-    br "/main"
-    co "/main"

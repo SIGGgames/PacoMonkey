@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 .vscode/
+.DS_Store
+
+plastic/
 
 # Intellij cache directory
 .idea/
