@@ -24,6 +24,8 @@ identity and the location of the killer, all while trying to grow and survive in
 - **Dynamic Levels**: Explore diverse levels that offer new challenges as the monkey evolves.
 - **Captivating story**: Discover the story of PacoMonkey through the levels.
 
+![image](https://github.com/SIGGgames/PacoMonkey/assets/53788631/df2f9592-925b-4382-b24e-7f80e8c48bd2)
+
 ## Versions
 - [Unity](https://unity.com/products/unity-engine): `2022.3.14f1`
 - [LibreSprite](https://libresprite.github.io/#!/downloads): `v1.2-973d0e3d-SDL`
