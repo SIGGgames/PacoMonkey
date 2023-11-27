@@ -65,7 +65,7 @@ For more information check [CONTRIBUTING](./CONTRIBUTING.md) file.
 
 ## Licence
 
-This project is under [MIT Licence](https://opensource.org/license/mit/) - see the [LICENCE.md](./LICENSE) file for details.
+This project is under [MIT Licence](https://opensource.org/license/mit/) - see the [LICENCE](./LICENSE) file for details.
 
 ## Authors
 
