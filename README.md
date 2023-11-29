@@ -76,4 +76,4 @@ This project is under [MIT Licence](https://opensource.org/license/mit/) - see t
 - [Serrano Ortega, Aniol](https://github.com/Aniol0012)
 
 ## Contact
-Feel free to contact us via email at: [aniol0012@gmail.com](mailto:aniol0012@gmail.com)
+Feel free to contact us via email at: [SIGGames.contact@gmail.com](mailto:SIGGames.contact@gmail.com)
