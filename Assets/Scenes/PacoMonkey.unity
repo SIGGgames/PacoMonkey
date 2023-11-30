@@ -192,12 +192,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652807750}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.82, y: -4.73, z: 0.008982126}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09, y: 0.19, z: 0.008982126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1438160112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723666406
 GameObject:
@@ -1464,7 +1464,8 @@ Transform:
   m_LocalPosition: {x: -4.1, y: -3.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 652807751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1438160113
@@ -1482,7 +1483,7 @@ Rigidbody2D:
   m_Mass: 2.629857
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1492,7 +1493,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1438160114
 BoxCollider2D:
@@ -1503,7 +1504,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1438160110}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 730f767bf2070486b8b9046c1111493a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1552,9 +1553,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5.26
-  jumpForce: 10
+  jumpForce: 12
+  groundCheckRadius: 0.3
+  jumpTime: 0.2
+  _rigidbody2D: {fileID: 1438160113}
   groundCheck: {fileID: 652807751}
-  groundCheckRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1565,4 +1568,3 @@ SceneRoots:
   - {fileID: 723666409}
   - {fileID: 553049983}
   - {fileID: 1438160112}
-  - {fileID: 652807751}
