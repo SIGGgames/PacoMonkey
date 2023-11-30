@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour {
     private void Update() {
         _horizontal = Input.GetAxisRaw("Horizontal");
         
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded()) {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) {
             _isJumping = true;
             _jumpTimeCounter = jumpTime;
             _rigidbody2D.velocity = Vector2.up * jumpForce;
         }
 
-        if (Input.GetKey(KeyCode.Space) && _isJumping) {
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && _isJumping) {
             if (_jumpTimeCounter > 0) {
                 _rigidbody2D.velocity = Vector2.up * jumpForce;
                 _jumpTimeCounter -= Time.deltaTime;
