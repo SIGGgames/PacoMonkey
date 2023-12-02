@@ -59,11 +59,30 @@ Extra biome (_easter egg_): **Zoo**
 ### Characters and Roles
 <!-- Design the main and secondary characters, assign them roles and abilities -->
 The designed characters are based on the real species of the existing primates. The chosen species are:
-- **Mandrill**
-![Mandrill](ProjectIdeas/mandrill_child_adult.png)
-- **Baboon**
-![Baboon](ProjectIdeas/baboon_white_adult.png)
-- ****
+
+- **Mandrill** <br>
+![mandrill_child_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/6545a328-d28c-44fa-bd9d-74cc56d174cb)
+
+- **Baboon** <br>
+![baboon_white__black_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/acdd3e34-a86b-4de4-a876-2c059c7d6023)
+
+- **Orangutan** <br>
+![orangutan_child_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/09edf24c-3fa0-4fda-bfe6-3805e5de9d71)
+
+- **Langur de François** <br>
+![langur-de-francois_child-adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/6ebbca20-2d6c-4b31-847f-9ab8dd2aa7f4)
+
+- **Gorilla** <br>
+![gorilla_child_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/c611465f-c7a9-4aaa-94b3-bb5cc70d43bd)
+
+- **Japanese Macaque** <br>
+![japanese-macaque](https://github.com/SIGGgames/PacoMonkey/assets/150971528/4488fab4-b943-4ea9-a222-8067b57fad34)
+
+- **Golden Snub-Nosed Monkey** <br>
+![golden-snub-nosed-monkey](https://github.com/SIGGgames/PacoMonkey/assets/150971528/f3103f59-dfcd-48eb-9468-d592b806fc23)
+
+- **Lemur** <br>
+![lemurs](https://github.com/SIGGgames/PacoMonkey/assets/150971528/d7518dc0-1888-41eb-bd33-c0ca7e4dfdce)
 
 
 #### TROPICAL BIOME:
