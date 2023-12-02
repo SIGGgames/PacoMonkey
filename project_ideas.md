@@ -38,8 +38,8 @@ Adventure, platform and survival.
     - Non-important NPCs: automatic (when entering in contact)
 
 - **Death**:
-  - Respawn bounded to the checkpoints. When the player dies, reappears at the last checkpoint, resetting all the enemies, bounties, experience, etc., that 
-he gained after the checkpoint. 
+  - Respawn bounded to the checkpoints. When the player dies, reappears at the last checkpoint, resetting all the 
+enemies, bounties, experience, etc., that he gained after the checkpoint. 
   
 ## Game Design
 ### World Design
@@ -58,14 +58,23 @@ Extra biome (_easter egg_): **Zoo**
 
 ### Characters and Roles
 <!-- Design the main and secondary characters, assign them roles and abilities -->
+The designed characters are based on the real species of the existing primates. The chosen species are:
+- **Mandrill**
+![Mandrill](ProjectIdeas/mandrill_child_adult.png)
+- **Baboon**
+![Baboon](ProjectIdeas/baboon_white_adult.png)
+- ****
+
 
 #### TROPICAL BIOME:
 - **PACOMONKEY**
   - <u>Role</u>: main character
-  - <u>Species/Appearance</u>: mandrill as a baby, child, adolescent, young, adult, old (becomes more aggressive as he gets older)
+  - <u>Species/Appearance</u>: mandrill as a baby, child, adolescent, young, adult, old (becomes more aggressive as he
+gets older)
   - <u>Location</u>: initially tropical, but can travel around the world
   - <u>Abilities</u>: Initially non, during the game can acquire all
-  - <u>Story</u>: Since his mom was killed, pacomonkey seeks vengeance and will travel around the world to find the killer.
+  - <u>Story</u>: Since his mom was killed, pacomonkey seeks vengeance and will travel around the world to find the 
+killer.
 
 
 - **(name to be determined)**
@@ -90,8 +99,8 @@ After that, he continued his path through the next lands until he arrived to wha
   - <u>Species/Appearance</u>: orangutan with big belly and smart (wears glasses and a little briefcase)
   - <u>Location</u>: initially tropical, but can travel around the world
   - <u>Abilities</u>: provides information
-  - <u>Story</u>: Since Pongo and Pacomonkey were kids they have been together. Pongo is a loyal friend that will accompany 
-Pacomonkey through his journey.
+  - <u>Story</u>: Since Pongo and Pacomonkey were kids they have been together. Pongo is a loyal friend that will 
+accompany Pacomonkey through his journey.
 
 
 - **Langur de François**
@@ -99,11 +108,11 @@ Pacomonkey through his journey.
   - <u>Species/Appearance</u>: langur de françois, wears a monocle, a top-hat and a fancy cane.
   - <u>Location</u>: tropical
   - <u>Abilities</u>: blocking attacks (acquirable)
-  - <u>Story</u>: Langur de François is the leader of Pacomonkey's hometown. When Pacomonkey comes to ask for his permission
-to leave the town he denies it, unless Pacomonkey brings him a Diamond. After not finding the diamond and returning to 
-Langur, the leader will only say "Keep looking for the diamond, Pacomonkey. Hahahaha!". If Pacomonkey has previously 
-talked to Langur's subordinate, he will start a fight. If he has not, he will keep searching for the diamond until the
-next visit; then he will automatically start a fight.
+  - <u>Story</u>: Langur de François is the leader of Pacomonkey's hometown. When Pacomonkey comes to ask for his
+permission to leave the town he denies it, unless Pacomonkey brings him a Diamond. After not finding the diamond and
+returning to Langur, the leader will only say "Keep looking for the diamond, Pacomonkey. Hahahaha!". If Pacomonkey has
+previously talked to Langur's subordinate, he will start a fight. If he has not, he will keep searching for the diamond
+until the next visit; then he will automatically start a fight.
 
 
 - **(name to be determined)**
@@ -111,8 +120,8 @@ next visit; then he will automatically start a fight.
   - <u>Species/Appearance</u>: Langur de François, young, small and cute, with a little pink bow on top.
   - <u>Location</u>: tropical
   - <u>Abilities</u>: provides information
-  - <u>Story</u>: After Pacomonkey's visit to the leader, (name to be determined) will feel sorry for him because she knows
-that the leader is lying. There is no diamonds. If Pacomonkey interacts with her, she will tell him something like 
+  - <u>Story</u>: After Pacomonkey's visit to the leader, (name to be determined) will feel sorry for him because she
+knows that the leader is lying. There is no diamonds. If Pacomonkey interacts with her, she will tell him something like 
 "there's no diamonds in this land, he only tells you that so you won't leave this place" and will encourage him to fight
 for his freedom.
 
@@ -192,51 +201,54 @@ for his freedom.
 ### Story and Narrative
 <!-- Develop the game narrative, including introduction, build-up and resolution -->
 #### Introduction
-The story begins with a baby mandrill, <u>Pacomonkey</u>, living in a tropical paradise with his mom, <u>(name to be determined)</u>,
-a loving white baboon female who breastfeeds him. In the beginning, Pacomonkey can only crawl. 
+The story begins with a baby mandrill, <u>Pacomonkey</u>, living in a tropical paradise with his mom, <u>(name to be
+determined)</u>, a loving white baboon female who breastfeeds him. In the beginning, Pacomonkey can only crawl. 
 
 A few years pass by and now he is a restless happy child who can run, climb and jump (and double jump), but the dark day
 arrives. A big black mandrill, <u>(name to be determined)</u> arrives to the village to cause chaos and destruction: 
-burns the trees and houses and kills many villagers, leaving orphans most of the kids. Among those kids there is Pacomonkey
-and his best friend <u>Pongo</u>, a smart but coward orangutan.
+burns the trees and houses and kills many villagers, leaving orphans most of the kids. Among those kids there is
+Pacomonkey and his best friend <u>Pongo</u>, a smart but coward orangutan.
 
 As the months pass by, Pacomonkey's rage dominates him and decides to leave the village to seek vengeance against the
 monster who destroyed everything he loved.
 
 #### Build-up
-Pacomonkey's village, <u>(name to be determined)</u>, is ruled by a greedy and smug monkey named <u>Langur de François</u>, 
-and his only desire is power, and fashion. When Pacomonkey goes to see him to ask for his permission to leave the village,
-Langur refuses. But as Pacomonkey insists he decides to offer him a way out: "Only if a diamond is brought up to me, I
-will grant my permission to leave. The diamond is somewhere hidden in this village, if you find it and bring it to me,
-you will have my permission to leave.". But the true intentions of the leader are way darker: he knows that no diamonds
-exist in this village, he only wants to trap the remaining population here and dominate all of them.
+Pacomonkey's village, <u>(name to be determined)</u>, is ruled by a greedy and smug monkey named <u>Langur de
+François</u>, and his only desire is power, and fashion. When Pacomonkey goes to see him to ask for his permission to
+leave the village, Langur refuses. But as Pacomonkey insists he decides to offer him a way out: "Only if a diamond is 
+brought up to me, I will grant my permission to leave. The diamond is somewhere hidden in this village, if you find it
+and bring it to me, you will have my permission to leave.". But the true intentions of the leader are way darker: he 
+knows that no diamonds exist in this village, he only wants to trap the remaining population here and dominate all of 
+them.
 
 - If Pacomonkey talks to <u>(name to be determined)</u>, Langur's subordinate, she will tell him the real plans of the
 leader and Pacomonkey will return to Langur to face him, and fight him for his friend's and his freedom.
 
 
 - If Pacomonkey doesn't talk to her, he will keep searching for the diamond until he visits Langur again. When Langur
-sees him again he will laugh at him and say "Hahaha. Keep looking for the diamond, Pacomonkey. Hahahaha!". Then Pacomonkey
-will be offered to choose between fighting him or keep searching for the diamond. If he chooses to keep searching for the
-diamond, </u>(name to be determined)</u> will scream "He is lying to you! He doesn't want anyone to leave! There are no 
-diamonds in this place!". After her confession, Langur will beat her badly and Pacomonkey will fight him.
+sees him again he will laugh at him and say "Hahaha. Keep looking for the diamond, Pacomonkey. Hahahaha!". Then 
+Pacomonkey will be offered to choose between fighting him or keep searching for the diamond. If he chooses to keep
+searching for the diamond, </u>(name to be determined)</u> will scream "He is lying to you! He doesn't want anyone to
+leave! There are no diamonds in this place!". After her confession, Langur will beat her badly and Pacomonkey will fight
+him.
 
 (...)
 
 #### Resolution
-After a long journey, Pacomonkey finally finds <u>(name to be determined)</u>, his mom's killer, inside the volcano mountain.
-But a lot of time has past since he left his little village, and now the black baboon who destroyed everything is nothing 
-more than an tired old monkey. Pacomonkey will have to decide between forgiveness and compassion or complete his revenge.
+After a long journey, Pacomonkey finally finds <u>(name to be determined)</u>, his mom's killer, inside the volcano 
+mountain. But a lot of time has past since he left his little village, and now the black baboon who destroyed everything
+is nothing more than an tired old monkey. Pacomonkey will have to decide between forgiveness and compassion or complete
+his revenge.
 
 When Pacomonkey starts fighting him, after the first hit he throws, a young mandrill named <u>(name to be determined)</u>,
 (name to be determined)'s grandson, will throw his granddad a (to be determined: magic cane, potion, idk) and he will
 become a young baboon again for the last time. 
 
-<u>(name to be determined)</u> will be overpowered, with every ability that Pacomonkey has acquired through the entire game.
-When Pacomonkey finally defeats him, he will have to decide whether to kill him or spare his live.
+<u>(name to be determined)</u> will be overpowered, with every ability that Pacomonkey has acquired through the entire
+game. When Pacomonkey finally defeats him, he will have to decide whether to kill him or spare his live.
 
-- If Pacomonkey decides to kill him, he will see through the eyes of the little (name to be determined) how he has become
-what he swore to destroy, the very monster itself, and the perpetuator of this endless cycle of violence. 
+- If Pacomonkey decides to kill him, he will see through the eyes of the little (name to be determined) how he has
+become what he swore to destroy, the very monster itself, and the perpetuator of this endless cycle of violence. 
 
 
 - If Pacomonkey decides to spare his live, (...)
