@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    private void Start() // Used to use or create other object's references
-    {
+    private void Start() { // Used to use or create other object's references
+    
     }
 
     // Update is called once per frame
