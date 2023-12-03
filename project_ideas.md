@@ -20,16 +20,21 @@ Adventure, platform and survival.
   - Crouch
   - Run
   - Jump
-  - Double jump (only when small)
+  - Double jump
 
 - **States**:
   - Show butt (stealth/incognito)
 
+- **Survival**:
+  - Eat
+  - Sleep/Find refugee
+
 - **Combat**:
   - Melee attack (punch)
-  - Ranged poop attack ()
+  - Ranged poop attack
   - Passive abilities:
     - Block attacks
+    - (...)
 
 - **Interaction**:
   - Items: automatic (when entering in contact)
@@ -47,7 +52,7 @@ enemies, bounties, experience, etc., that he gained after the checkpoint.
 The world of the game is based on the real environments that can be inhabited by different species of monkeys.
 There are 6 different biomes incorporated, sorted by the chronological order of the story:
 
-1. **Tropical**
+1. **Tropical forest**
 2. **Forest**
 3. **Rocky mountain**
 4. **Snowy mountain**
@@ -56,15 +61,48 @@ There are 6 different biomes incorporated, sorted by the chronological order of 
 
 Extra biome (_easter egg_): **Zoo**
 
+---
+
+#### 1. Tropical forest
+- Pacomonkey's house:
+- Pongo's house:
+- Langur's palace:
+- Burned sea port:
+- (...)
+
+#### 2. Forest
+- (...)
+
+#### 3. Rocky mountain
+- (...)
+
+#### 4. Snowy mountain
+- (...)
+
+#### 5. Island
+- Volcano path
+- (...)
+
+#### 6. Volcano mountain
+- (TBD)'s lair: 
+- (...)
+
+#### *. Zoo
+- (...)
+
+
+
 ### Characters and Roles
 <!-- Design the main and secondary characters, assign them roles and abilities -->
+
+#### INSPIRATIONS
 The designed characters are based on the real species of the existing primates. The chosen species are:
 
 - **Mandrill** <br>
 ![mandrill_child_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/6545a328-d28c-44fa-bd9d-74cc56d174cb)
 
 - **Baboon** <br>
-![baboon_white__black_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/acdd3e34-a86b-4de4-a876-2c059c7d6023)
+![baboon_white_black_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/acdd3e34-a86b-4de4-a876-2c059c7d6023)
 
 - **Orangutan** <br>
 ![orangutan_child_adult](https://github.com/SIGGgames/PacoMonkey/assets/150971528/09edf24c-3fa0-4fda-bfe6-3805e5de9d71)
@@ -85,13 +123,14 @@ The designed characters are based on the real species of the existing primates. 
 ![lemurs](https://github.com/SIGGgames/PacoMonkey/assets/150971528/d7518dc0-1888-41eb-bd33-c0ca7e4dfdce)
 
 
-#### TROPICAL BIOME:
+#### CHARACTERS DESCRIPTION:
+Basic description of every character that appears in the story, chronologically sorted.
+
 - **PACOMONKEY**
   - <u>Role</u>: main character
-  - <u>Species/Appearance</u>: mandrill as a baby, child, adolescent, young, adult, old (becomes more aggressive as he
-gets older)
+  - <u>Species/Appearance</u>: mandrill as a baby, child, adolescent, young, adult, old
   - <u>Location</u>: initially tropical, but can travel around the world
-  - <u>Abilities</u>: Initially non, during the game can acquire all
+  - <u>Abilities</u>: non initially, during the game can acquire all
   - <u>Story</u>: Since his mom was killed, pacomonkey seeks vengeance and will travel around the world to find the 
 killer.
 
@@ -109,8 +148,9 @@ killer.
   - <u>Species/Appearance</u>: black evil baboon
   - <u>Location</u>: 1st appearance tropical, next and final appearance volcano mountain
   - <u>Abilities</u>: all abilities
-  - <u>Story</u>: He appeared in the village to cause destruction and chaos, and in doing so he killed Pacomonkey's mom.
-After that, he continued his path through the next lands until he arrived to what is now his lair, volcano mountain.
+  - <u>Story</u>: He appeared in the village seeking for revenge. He killed (TBD), Pacomonkey's mom. After doing so, he
+was still furious and destroyed houses and killed many villagers, Pongo's dad among them. After that, he continued his 
+path through the next lands until he arrived to what is now his lair, volcano mountain.
 
 
 - **Pongo**
@@ -128,10 +168,9 @@ accompany Pacomonkey through his journey.
   - <u>Location</u>: tropical
   - <u>Abilities</u>: blocking attacks (acquirable)
   - <u>Story</u>: Langur de François is the leader of Pacomonkey's hometown. When Pacomonkey comes to ask for his
-permission to leave the town he denies it, unless Pacomonkey brings him a Diamond. After not finding the diamond and
-returning to Langur, the leader will only say "Keep looking for the diamond, Pacomonkey. Hahahaha!". If Pacomonkey has
-previously talked to Langur's subordinate, he will start a fight. If he has not, he will keep searching for the diamond
-until the next visit; then he will automatically start a fight.
+permission to leave the town he denies it, unless Pacomonkey brings him a Diamond. Since there's no diamond in the
+village and only him and his subordinate knows that, he will keep lying to Pacomonkey to make him stay until he finds 
+out and they fight. After he is defeated and dethroned, his subordinate (TBD) will occupy his place.
 
 
 - **(name to be determined)**
@@ -139,13 +178,11 @@ until the next visit; then he will automatically start a fight.
   - <u>Species/Appearance</u>: Langur de François, young, small and cute, with a little pink bow on top.
   - <u>Location</u>: tropical
   - <u>Abilities</u>: provides information
-  - <u>Story</u>: After Pacomonkey's visit to the leader, (name to be determined) will feel sorry for him because she
-knows that the leader is lying. There is no diamonds. If Pacomonkey interacts with her, she will tell him something like 
-"there's no diamonds in this land, he only tells you that so you won't leave this place" and will encourage him to fight
-for his freedom.
+  - <u>Story</u>: After Pacomonkey's visit to the leader, (TBD), Langur's subordinate, will feel sorry for him because 
+she knows that the leader is lying. There are no diamonds. If Pacomonkey interacts with her, she will reveal the truth
+and will encourage him to fight for everyone's freedom.
 
 
-#### FOREST BIOME:
 - **(name to be determined)**
   - <u>Role</u>: -
   - <u>Species/Appearance</u>: -
@@ -154,79 +191,22 @@ for his freedom.
   - <u>Story</u>: -
 
 
-- ...
-
-
-#### ROCKY MOUNTAIN BIOME:
-- **(name to be determined)**
-  - <u>Role</u>: -
-  - <u>Species/Appearance</u>: -
-  - <u>Location</u>: -
-  - <u>Abilities</u>: -
-  - <u>Story</u>: -
-
-
-- ...
-
-
-#### SNOWY MOUNTAIN BIOME:
-- **(name to be determined)**
-  - <u>Role</u>: -
-  - <u>Species/Appearance</u>: -
-  - <u>Location</u>: -
-  - <u>Abilities</u>: -
-  - <u>Story</u>: -
-
-
-- ...
-
-
-#### ISLAND BIOME:
-- **(name to be determined)**
-  - <u>Role</u>: -
-  - <u>Species/Appearance</u>: -
-  - <u>Location</u>: -
-  - <u>Abilities</u>: -
-  - <u>Story</u>: -
-
-
-- ...
-
-
-#### VOLCANO MOUNTAIN BIOME:
-- **(name to be determined)**
-  - <u>Role</u>: -
-  - <u>Species/Appearance</u>: -
-  - <u>Location</u>: -
-  - <u>Abilities</u>: -
-  - <u>Story</u>: -
-
-
-- ...
-
-
-#### ZOO BIOME:
-- **(name to be determined)**
-  - <u>Role</u>: -
-  - <u>Species/Appearance</u>: -
-  - <u>Location</u>: -
-  - <u>Abilities</u>: -
-  - <u>Story</u>: -
-
-
-- ...
+- (...)
 
 
 ### Story and Narrative
 <!-- Develop the game narrative, including introduction, build-up and resolution -->
 #### Introduction
-The story begins with a baby mandrill, <u>Pacomonkey</u>, living in a tropical paradise with his mom, <u>(name to be
-determined)</u>, a loving white baboon female who breastfeeds him. In the beginning, Pacomonkey can only crawl. 
+The story begins with a baby mandrill that can only crawl, <u>Pacomonkey</u>, living in a tropical paradise only with
+his mom, <u>(TBD)</u>, a white baboon female who breastfeeds him. When Pacomonkey wasn't born yet, his father <u>(TBD)</u>
+was kidnapped by some human hunters and has not been seen since.
 
 A few years pass by and now he is a restless happy child who can run, climb and jump (and double jump), but the dark day
-arrives. A big black mandrill, <u>(name to be determined)</u> arrives to the village to cause chaos and destruction: 
-burns the trees and houses and kills many villagers, leaving orphans most of the kids. Among those kids there is
-Pacomonkey and his best friend <u>Pongo</u>, a smart but coward orangutan.
+arrives. A big black mandrill named <u>(TBD)</u> arrives to the village searching for <u>(TBD)</u>, Pacomonkey's mom, 
+to kill her for her past crimes and make justice (or complete his vengeance). After killing her, he still doesn't feel
+satisfied enough and a feeling of frustration and uncontrolled anger possesses him: burns the trees and houses and kills
+many villagers, leaving most of the kids orphans. Among those kids there's Pacomonkey's best friend <u>Pongo</u>, a
+smart but coward orangutan, and Pacomonkey.
 
 As the months pass by, Pacomonkey's rage dominates him and decides to leave the village to seek vengeance against the
 monster who destroyed everything he loved.
@@ -234,40 +214,54 @@ monster who destroyed everything he loved.
 #### Build-up
 Pacomonkey's village, <u>(name to be determined)</u>, is ruled by a greedy and smug monkey named <u>Langur de
 François</u>, and his only desire is power, and fashion. When Pacomonkey goes to see him to ask for his permission to
-leave the village, Langur refuses. But as Pacomonkey insists he decides to offer him a way out: "Only if a diamond is 
-brought up to me, I will grant my permission to leave. The diamond is somewhere hidden in this village, if you find it
-and bring it to me, you will have my permission to leave.". But the true intentions of the leader are way darker: he 
-knows that no diamonds exist in this village, he only wants to trap the remaining population here and dominate all of 
-them.
+leave the village, Langur refuses. But as Pacomonkey insists he decides to offer him a way out: 
 
-- If Pacomonkey talks to <u>(name to be determined)</u>, Langur's subordinate, she will tell him the real plans of the
-leader and Pacomonkey will return to Langur to face him, and fight him for his friend's and his freedom.
+> "Only if a diamond is brought up to me, I will grant my permission to leave. The diamond is somewhere hidden in this 
+village, if you find it and bring it to me, you will have my permission to leave."
+
+But the true intentions of the leader are way darker: he knows that no diamonds exist in this village, he only wants to
+trap the remaining population here and dominate all of them.
+
+- If Pacomonkey talks to <u>(TBD)</u>, Langur's subordinate, she will tell him the real plans of the leader:
+
+  > "There are no diamonds in this land, he only tells you that so you won't leave this place. He is an evil and
+selfish monkey corrupted by power and his will to dominate everything and everyone. Don't let yourself be fooled!"
+  
+  > "There's only one way you can make it out of here. Fight Langur for yours and everyone's freedom!"
+
+  After that, Pacomonkey will return to Langur to face him and fight for his friend's and his freedom.
 
 
 - If Pacomonkey doesn't talk to her, he will keep searching for the diamond until he visits Langur again. When Langur
-sees him again he will laugh at him and say "Hahaha. Keep looking for the diamond, Pacomonkey. Hahahaha!". Then 
-Pacomonkey will be offered to choose between fighting him or keep searching for the diamond. If he chooses to keep
-searching for the diamond, </u>(name to be determined)</u> will scream "He is lying to you! He doesn't want anyone to
-leave! There are no diamonds in this place!". After her confession, Langur will beat her badly and Pacomonkey will fight
-him.
+sees him again he will laugh at him and say:
+
+  >"Hahaha. Keep looking for the diamond, Pacomonkey. Hahahaha!".
+
+  Then Pacomonkey will be offered to choose between fighting him or keep searching for the diamond. If he chooses to
+  keep searching, (TBD) will scream:
+  
+  >"He is lying to you! He doesn't want anyone to leave! There are no diamonds in this place!".
+
+  After her confession, Langur will beat her badly and Pacomonkey will start to fight him to protect (TBD) and to leave
+  this place. Also he starts fighting because he's angry for being played and lied to.
 
 (...)
 
 #### Resolution
-After a long journey, Pacomonkey finally finds <u>(name to be determined)</u>, his mom's killer, inside the volcano 
-mountain. But a lot of time has past since he left his little village, and now the black baboon who destroyed everything
-is nothing more than an tired old monkey. Pacomonkey will have to decide between forgiveness and compassion or complete
-his revenge.
+After a long journey, Pacomonkey finally finds <u>(TBD)</u>, his mom's killer, inside the volcano mountain. But a lot of
+time has past since he left his little village, and now the black baboon who destroyed everything is nothing more than a
+tired old monkey. Pacomonkey will have to decide between forgiveness and compassion or complete his revenge.
 
-When Pacomonkey starts fighting him, after the first hit he throws, a young mandrill named <u>(name to be determined)</u>,
-(name to be determined)'s grandson, will throw his granddad a (to be determined: magic cane, potion, idk) and he will
-become a young baboon again for the last time. 
+When Pacomonkey starts fighting him, after the first hit he throws, a young mandrill named <u>(TBD)</u>, (TBD)'s grandson,
+will throw his granddad a (to be determined: magic cane, potion, idk) and he will become a young baboon again for the
+last time. (TBD) will be overpowered, with every ability that Pacomonkey has acquired through the entire game. When Pacomonkey
+finally defeats him, he will have to decide whether to kill him or spare his live.
 
-<u>(name to be determined)</u> will be overpowered, with every ability that Pacomonkey has acquired through the entire
-game. When Pacomonkey finally defeats him, he will have to decide whether to kill him or spare his live.
-
-- If Pacomonkey decides to kill him, he will see through the eyes of the little (name to be determined) how he has
-become what he swore to destroy, the very monster itself, and the perpetuator of this endless cycle of violence. 
+- If Pacomonkey decides to kill him, after doing so he will see through the eyes of the little (TBD) how he has become
+what he swore to destroy, the very monster itself, and the perpetuator of this endless cycle of violence. 
+After doing so he will have to decide to commit one last atrocity, killing the little boy, the only other living being
+in this area, to end the cycle or forgive his life, leave and live in fear waiting for his moment to come, just like
+(TBD) did.
 
 
 - If Pacomonkey decides to spare his live, (...)
@@ -279,3 +273,57 @@ become what he swore to destroy, the very monster itself, and the perpetuator of
 ### Flowchart
 <!-- Create a diagram that shows how the player progresses through the game and how the different levels or scenarios 
 are related. -->
+
+Tropical forest > Forest > *(Extra_Zoo)* > Rocky mountain > Snowy mountain > Island > Volcano mountain
+
+(...)
+
+### Levels and Progression
+<!-- Define the structure of the game, the levels and how the difficulty progresses, specially challenges, enemies and
+key elements. -->
+
+(...)
+
+
+### User Interface
+<!-- Design the interface that the player will see during the game, including menus, indicators and any other relevant 
+information. -->
+
+(...)
+
+
+## Art and Graphic Style
+### Graphic style
+#### Pixel Art
+Pixel Art requires colorful characters and backgrounds. The characters, specially the important ones, should also have a
+recognizable shape.
+
+- Tiles size: 32x32
+- Screen size: 360x640
+
+(...)
+
+
+### Concept Art
+<!-- Create concept illustrations for characters, settings and game elements. -->
+(...)
+
+
+## Sound and Music
+### Sound Effects
+<!-- List of all the necessary sound effects -->
+(...)
+
+
+### Music
+<!-- Decide the musical style and compose or select the music for the game -->
+(...)
+
+
+## Development
+### Used Programs
+- <u>Unity</u> *(2022.3.14f1)*: Motor engine.
+- <u>JetBrains Rider</u> *(2023.2.3)*: Code refactoring tool in C# for Unity.
+- <u>GitHub</u> and <u>GitHub Desktop</u>: Distributed revision control and source code administration.
+- <u>LibreSprite</u> *(v1.2-973d0e3d-SDL)*: Animated sprite editor & pixel art tool.
+- <u>ChatGPT4</u>: AI system used for design and structural guidance.
