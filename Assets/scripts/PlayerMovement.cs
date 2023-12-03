@@ -1,15 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    private Rigidbody2D _rigidbody2D;
-    public float moveSpeed = 5f;
-    public float jumpForce = 5f;
-    public Transform groundCheck;
+    private float _horizontal;
+    public float moveSpeed;
+    public float jumpForce;
     public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
+    private bool _isFacingRight = true;
+    
+    private bool _isJumping = false;
+    [SerializeField] private float jumpTime;
+    private float _jumpTimeCounter;
+    [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
 
     private void Awake() {
         // Used to initialise an object's own reference
@@ -22,64 +28,46 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-        HandleMovement();
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Jump();
+    private void Update() {
+        _horizontal = Input.GetAxisRaw("Horizontal");
+        
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) {
+            _isJumping = true;
+            _jumpTimeCounter = jumpTime;
+            _rigidbody2D.velocity = Vector2.up * jumpForce;
         }
 
-        LimitVelocity();
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && _isJumping) {
+            if (_jumpTimeCounter > 0) {
+                _rigidbody2D.velocity = Vector2.up * jumpForce;
+                _jumpTimeCounter -= Time.deltaTime;
+            } else {
+                _isJumping = false;
+            }
+        }
+
+        _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
+
+        Flip();
     }
 
-
-    private void HandleMovement() {
-        bool moveRight = Input.GetKey(KeyCode.D);
-        bool moveLeft = Input.GetKey(KeyCode.A);
-        bool moveUp = Input.GetKeyDown(KeyCode.W);
-        bool moveDown = Input.GetKeyDown(KeyCode.S);
-
-        float moveX = 0f;
-        float moveY = 0f;
-
-        if (moveRight) {
-            moveX = 1;
-        }
-        else if (moveLeft) {
-            moveX = -1;
-        }
-
-        if (moveUp) {
-            moveY = 1;
-        }
-        else if (moveDown) {
-            moveY = -1;
-        }
-
-        Vector2 movement = new Vector2(moveX, moveY);
-
-        if (movement != Vector2.zero) {
-            movement = movement.normalized * moveSpeed;
-            _rigidbody2D.velocity = movement;
-        }
+    private bool IsGrounded() {
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-
-    private void Jump() {
-        _rigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+    private void Flip() {
+        if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) {
+            _isFacingRight = !_isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
-
+    
     // Made to visualize the ground detector in the editor
     private void OnDrawGizmosSelected() {
         if (groundCheck == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-    }
-
-    private void LimitVelocity() {
-        float maxSpeed = 5f;
-        if (_rigidbody2D.velocity.magnitude > maxSpeed) {
-            _rigidbody2D.velocity = Vector2.ClampMagnitude(_rigidbody2D.velocity, maxSpeed);
-        }
     }
 }
