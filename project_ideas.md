@@ -212,9 +212,9 @@ As the months pass by, Pacomonkey's rage dominates him and decides to leave the 
 monster who destroyed everything he loved.
 
 #### Build-up
-Pacomonkey's village, <u>(name to be determined)</u>, is ruled by a greedy and smug monkey named <u>Langur de
-François</u>, and his only desire is power, and fashion. When Pacomonkey goes to see him to ask for his permission to
-leave the village, Langur refuses. But as Pacomonkey insists he decides to offer him a way out: 
+Pacomonkey's village, <u>(TBD)</u>, is ruled by a greedy and smug monkey named <u>Langur de François</u>, and his only
+desire is power, and fashion. When Pacomonkey goes to see him to ask for his permission to leave the village, Langur
+refuses. But as Pacomonkey insists he decides to offer him a way out: 
 
 > "Only if a diamond is brought up to me, I will grant my permission to leave. The diamond is somewhere hidden in this 
 village, if you find it and bring it to me, you will have my permission to leave."
