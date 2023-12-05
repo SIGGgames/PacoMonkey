@@ -65,19 +65,22 @@ public class PlayerMovement : MonoBehaviour {
      * Triggered by pressing the left shift key (temporal)
      */
     private void Turbo() {
-        if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
+        if (!Input.GetKeyDown(KeyCode.LeftShift) || isTurboActive) return;
         float turboSpeedMultiplier = 2f;
         float turboDuration = 2f; // In seconds
-        if (!isTurboActive) {
-            StartCoroutine(Utils.TurboEffect(this, turboSpeedMultiplier, turboDuration, moveSpeed, OnTurboComplete));
-            isTurboActive = true;
-        }
-    }
-    
-    private void OnTurboComplete() {
-        isTurboActive = false;
+        StartCoroutine(TurboEffect(turboSpeedMultiplier, turboDuration));
     }
 
+    private IEnumerator TurboEffect(float speedMultiplier, float duration) {
+        isTurboActive = true;
+        float originalSpeed = moveSpeed;
+        moveSpeed *= speedMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalSpeed;
+        isTurboActive = false;
+    }
 
     /**
      * IsGrounded(): Returns true if the player is touching the ground
@@ -85,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-    
+
     /**
      * CheckFall(): Checks if the player has fallen off the map and respawns it
      */
