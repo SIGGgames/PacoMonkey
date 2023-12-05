@@ -49,14 +49,27 @@ public class PlayerMovement : MonoBehaviour {
 
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
 
-        Flip();
+        HandleFlip();
+        CheckFall();
     }
 
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
+    
+    private void CheckFall() {
+        if (transform.position.y < -10f) {
+            Respawn();
+        }
+    }
+    
+    private void Respawn() {
+        Vector2 respawnCoordinates = new Vector2(0, 5);
+        transform.position = respawnCoordinates;
+        _rigidbody2D.velocity = Vector2.zero;
+    }
 
-    private void Flip() {
+    private void HandleFlip() {
         if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) {
             _isFacingRight = !_isFacingRight;
             Vector3 localScale = transform.localScale;
