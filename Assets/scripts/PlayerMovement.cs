@@ -52,24 +52,12 @@ public class PlayerMovement : MonoBehaviour {
 
         HandleFlip();
         CheckFall();
-        Turbo();
     }
 
     private void FixedUpdate() {
         // Used to update physics
     }
-
-    /**
-     * Turbo(): Makes player gain speed by pressing the turbo button during a certain amount of time
-     * Triggered by pressing the left shift key (temporal)
-     */
-    private void Turbo() {
-        if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
-        float turboSpeedMultiplier = 2f;
-        float turboDuration = 2f; // In seconds
-        StartCoroutine(Utils.TurboEffect(this, turboSpeedMultiplier, turboDuration, moveSpeed));
-    }
-
+    
 
     /**
      * IsGrounded(): Returns true if the player is touching the ground

@@ -26,13 +26,4 @@ public class Utils : MonoBehaviour {
 
         return 0;
     }
-    
-    public static IEnumerator TurboEffect(PlayerMovement player, float speedMultiplier, float duration, float moveSpeed) {
-        float originalSpeed = moveSpeed;
-        player.moveSpeed *= speedMultiplier;
-
-        yield return new WaitForSeconds(duration);
-
-        player.moveSpeed = originalSpeed;
-    }
 }
