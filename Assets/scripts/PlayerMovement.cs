@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce;
     public float groundCheckRadius = 0.2f;
     private bool _isFacingRight = true;
-    
+
     private bool _isJumping = false;
     [SerializeField] private float jumpTime;
     private float _jumpTimeCounter;
@@ -23,25 +23,26 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    private void Start() { // Used to use or create other object's references
-    
+    private void Start() {
+        // Used to use or create other object's references
     }
 
     // Update is called once per frame
     private void Update() {
         _horizontal = Input.GetAxisRaw("Horizontal");
-        
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) {
+
+        if (CheckJumpStatus() == 1) {
             _isJumping = true;
             _jumpTimeCounter = jumpTime;
             _rigidbody2D.velocity = Vector2.up * jumpForce;
         }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && _isJumping) {
+        if (CheckJumpStatus() == 2) {
             if (_jumpTimeCounter > 0) {
                 _rigidbody2D.velocity = Vector2.up * jumpForce;
                 _jumpTimeCounter -= Time.deltaTime;
-            } else {
+            }
+            else {
                 _isJumping = false;
             }
         }
@@ -49,6 +50,27 @@ public class PlayerMovement : MonoBehaviour {
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
 
         Flip();
+    }
+
+    /**
+     * Return 0: Not jumping
+     * Return 1: Start jumping
+     * Return 2: Continue jumping (double jump)
+     */
+    private int CheckJumpStatus() {
+        bool jumpButtonDown = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) ||
+                              Input.GetKeyDown(KeyCode.UpArrow);
+        bool jumpButtonHeld = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+
+        if (jumpButtonDown && IsGrounded()) {
+            return 1;
+        }
+
+        if (jumpButtonHeld && _isJumping) {
+            return 2;
+        }
+
+        return 0;
     }
 
     private bool IsGrounded() {
@@ -63,7 +85,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.localScale = localScale;
         }
     }
-    
+
     // Made to visualize the ground detector in the editor
     private void OnDrawGizmosSelected() {
         if (groundCheck == null) return;
