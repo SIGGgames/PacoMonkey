@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce;
     public float groundCheckRadius = 0.2f;
     private bool _isFacingRight = true;
-    
+
     private bool _isJumping = false;
     [SerializeField] private float jumpTime;
     private float _jumpTimeCounter;
@@ -23,39 +23,53 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    private void Start() { // Used to use or create other object's references
-    
+    private void Start() {
+        // Used to use or create other object's references
     }
 
     // Update is called once per frame
     private void Update() {
         _horizontal = Input.GetAxisRaw("Horizontal");
-        
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) {
+
+        if (Utils.GetJumpStatus() == 1 && IsGrounded()) {
             _isJumping = true;
             _jumpTimeCounter = jumpTime;
             _rigidbody2D.velocity = Vector2.up * jumpForce;
         }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && _isJumping) {
+        if (Utils.GetJumpStatus() == 2 && _isJumping) {
             if (_jumpTimeCounter > 0) {
                 _rigidbody2D.velocity = Vector2.up * jumpForce;
                 _jumpTimeCounter -= Time.deltaTime;
-            } else {
+            }
+            else {
                 _isJumping = false;
             }
         }
 
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
 
-        Flip();
+        HandleFlip();
+        CheckFall();
     }
 
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
+    
+    private void CheckFall() {
+        if (transform.position.y < -10f) {
+            Respawn();
+        }
+    }
+    
+    private void Respawn() {
+        Vector2 respawnCoordinates = new Vector2(0, 5);
+        transform.position = respawnCoordinates;
+        _rigidbody2D.velocity = Vector2.zero;
+    }
 
-    private void Flip() {
+    private void HandleFlip() {
         if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) {
             _isFacingRight = !_isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -63,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.localScale = localScale;
         }
     }
-    
+
     // Made to visualize the ground detector in the editor
     private void OnDrawGizmosSelected() {
         if (groundCheck == null) return;
