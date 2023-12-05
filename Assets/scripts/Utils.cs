@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Utils : MonoBehaviour {
@@ -27,12 +28,14 @@ public class Utils : MonoBehaviour {
         return 0;
     }
     
-    public static IEnumerator TurboEffect(PlayerMovement player, float speedMultiplier, float duration, float moveSpeed) {
-        float originalSpeed = moveSpeed;
+    public static IEnumerator TurboEffect(PlayerMovement player, float speedMultiplier, float duration, float moveSpeed, Action onTurboComplete) {
+        float originalSpeed = player.moveSpeed;
         player.moveSpeed *= speedMultiplier;
 
         yield return new WaitForSeconds(duration);
 
         player.moveSpeed = originalSpeed;
+        onTurboComplete?.Invoke();
     }
+
 }

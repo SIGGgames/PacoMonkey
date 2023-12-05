@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce;
     public float groundCheckRadius = 0.2f;
     private bool _isFacingRight = true;
+    bool isTurboActive = false;
 
     private bool _isJumping = false;
     private float _jumpTimeCounter;
@@ -67,7 +68,14 @@ public class PlayerMovement : MonoBehaviour {
         if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
         float turboSpeedMultiplier = 2f;
         float turboDuration = 2f; // In seconds
-        StartCoroutine(Utils.TurboEffect(this, turboSpeedMultiplier, turboDuration, moveSpeed));
+        if (!isTurboActive) {
+            StartCoroutine(Utils.TurboEffect(this, turboSpeedMultiplier, turboDuration, moveSpeed, OnTurboComplete));
+            isTurboActive = true;
+        }
+    }
+    
+    private void OnTurboComplete() {
+        isTurboActive = false;
     }
 
 
