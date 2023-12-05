@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     private bool _isFacingRight = true;
 
     private bool _isJumping = false;
-    [SerializeField] private float jumpTime;
     private float _jumpTimeCounter;
+    [SerializeField] private float jumpTime;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -52,29 +52,53 @@ public class PlayerMovement : MonoBehaviour {
 
         HandleFlip();
         CheckFall();
+        Turbo();
     }
 
     private void FixedUpdate() {
         // Used to update physics
     }
 
+    /**
+     * Turbo(): Makes player gain speed by pressing the turbo button during a certain amount of time
+     * Triggered by pressing the left shift key (temporal)
+     */
+    private void Turbo() {
+        if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
+        float turboSpeedMultiplier = 2f;
+        float turboDuration = 2f; // In seconds
+        StartCoroutine(Utils.TurboEffect(this, turboSpeedMultiplier, turboDuration, moveSpeed));
+    }
 
+
+    /**
+     * IsGrounded(): Returns true if the player is touching the ground
+     */
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-
+    
+    /**
+     * CheckFall(): Checks if the player has fallen off the map and respawns it
+     */
     private void CheckFall() {
         if (transform.position.y < -10f) {
             Respawn();
         }
     }
 
+    /**
+     * Respawn(): Respawns the player at the initial position
+     */
     private void Respawn() {
         Vector2 respawnCoordinates = new Vector2(0, 5);
         transform.position = respawnCoordinates;
         _rigidbody2D.velocity = Vector2.zero;
     }
 
+    /**
+     * HandleFlip(): Flips the player sprite when changing direction
+     */
     private void HandleFlip() {
         if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f) {
             _isFacingRight = !_isFacingRight;
@@ -84,7 +108,9 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    // Made to visualize the ground detector in the editor
+    /**
+     * OnDrawGizmosSelected(): Draws a red circle around the ground detector
+     */
     private void OnDrawGizmosSelected() {
         if (groundCheck == null) return;
         Gizmos.color = Color.red;
