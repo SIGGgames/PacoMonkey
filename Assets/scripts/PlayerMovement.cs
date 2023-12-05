@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
+        // TODO: Move player movement to FixedUpdate() without breaking JUMPS!!!
         _horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Utils.GetJumpStatus() == 1 && IsGrounded()) {
@@ -53,16 +54,21 @@ public class PlayerMovement : MonoBehaviour {
         CheckFall();
     }
 
+    private void FixedUpdate() {
+        // Used to update physics
+    }
+
+
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-    
+
     private void CheckFall() {
         if (transform.position.y < -10f) {
             Respawn();
         }
     }
-    
+
     private void Respawn() {
         Vector2 respawnCoordinates = new Vector2(0, 5);
         transform.position = respawnCoordinates;
