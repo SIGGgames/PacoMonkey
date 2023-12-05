@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour {
     private void Update() {
         _horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (CheckJumpStatus() == 1) {
+        if (Utils.GetJumpStatus() == 1 && IsGrounded()) {
             _isJumping = true;
             _jumpTimeCounter = jumpTime;
             _rigidbody2D.velocity = Vector2.up * jumpForce;
         }
 
-        if (CheckJumpStatus() == 2) {
+        if (Utils.GetJumpStatus() == 2 && _isJumping) {
             if (_jumpTimeCounter > 0) {
                 _rigidbody2D.velocity = Vector2.up * jumpForce;
                 _jumpTimeCounter -= Time.deltaTime;
@@ -50,27 +50,6 @@ public class PlayerMovement : MonoBehaviour {
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
 
         Flip();
-    }
-
-    /**
-     * Return 0: Not jumping
-     * Return 1: Start jumping
-     * Return 2: Continue jumping (double jump)
-     */
-    private int CheckJumpStatus() {
-        bool jumpButtonDown = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) ||
-                              Input.GetKeyDown(KeyCode.UpArrow);
-        bool jumpButtonHeld = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-
-        if (jumpButtonDown && IsGrounded()) {
-            return 1;
-        }
-
-        if (jumpButtonHeld && _isJumping) {
-            return 2;
-        }
-
-        return 0;
     }
 
     private bool IsGrounded() {
