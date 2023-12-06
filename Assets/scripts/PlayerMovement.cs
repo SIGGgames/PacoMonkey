@@ -6,13 +6,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     private float _horizontal;
     public float moveSpeed;
-    public float jumpForce;
     public float groundCheckRadius = 0.2f;
+    public float jumpForce;
+    [SerializeField] private int maxJumps;    
     private bool _isFacingRight = true;
 
     private bool _isJumping = false;
     private float _jumpTimeCounter;
-    [SerializeField] private float jumpTime;
+    private int _jumpCounter;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -32,33 +33,39 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        // TODO: Move player movement to FixedUpdate() without breaking JUMPS!!!
-        _horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Utils.GetJumpStatus() == 1 && IsGrounded()) {
-            _isJumping = true;
-            _jumpTimeCounter = jumpTime;
-            _rigidbody2D.velocity = Vector2.up * jumpForce;
-        }
-
-        if (Utils.GetJumpStatus() == 2 && _isJumping) {
-            if (_jumpTimeCounter > 0) {
-                _rigidbody2D.velocity = Vector2.up * jumpForce;
-                _jumpTimeCounter -= Time.deltaTime;
-            }
-            else {
-                _isJumping = false;
-            }
-        }
-
-        _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
-
+        HandleMovement();
+        HandleJump();
         HandleFlip();
         CheckFall();
     }
 
     private void FixedUpdate() {
         // Used to update physics
+    }
+    
+    private void HandleMovement() {
+        _horizontal = Input.GetAxisRaw("Horizontal");
+        _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
+    }
+
+    private void HandleJump() {
+        if (IsGrounded()) {
+            if (_isJumping) {
+                _isJumping = false;
+                _jumpCounter = 0;
+            }
+        } else {
+            _isJumping = true;
+        }
+
+        if (Input.GetButtonDown("Jump") && _jumpCounter < maxJumps) {
+            Jump();
+        }
+    }
+
+    private void Jump() {
+        _jumpCounter++;
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
     }
 
 
