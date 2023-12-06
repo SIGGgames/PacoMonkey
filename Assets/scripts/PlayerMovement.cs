@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce;
     public float groundCheckRadius = 0.2f;
     private bool _isFacingRight = true;
-
     [SerializeField] private int maxJumps;
 
     private bool _isJumping;
@@ -46,14 +45,16 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void HandleJump() {
-        if (IsGrounded() && !_isJumping) {
-            _jumpCounter = 0;
-        }
-        else {
-            _isJumping = false;
+        if (IsGrounded()) {
+            if (_isJumping) {
+                _isJumping = false;
+                _jumpCounter = 0;
+            }
+        } else {
+            _isJumping = true;
         }
 
-        if (Input.GetButtonDown("Jump") && _jumpCounter < maxJumps - 1) {
+        if (Input.GetButtonDown("Jump") && _jumpCounter < maxJumps) {
             Jump();
         }
     }
@@ -61,7 +62,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Jump() {
         _jumpCounter++;
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
-        _isJumping = true;
     }
 
 
