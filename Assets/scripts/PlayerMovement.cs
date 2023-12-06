@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    private PlayerPos _playerPos;
 
     private void Awake() {
         // Used to initialise an object's own reference
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     // Start is called before the first frame update
     private void Start() {
         // Used to use or create other object's references
+        _playerPos = GetComponent<PlayerPos>();
     }
 
     // Update is called once per frame
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate() {
         // Used to update physics
     }
-    
+
 
     /**
      * IsGrounded(): Returns true if the player is touching the ground
@@ -65,13 +67,14 @@ public class PlayerMovement : MonoBehaviour {
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-    
+
     /**
      * CheckFall(): Checks if the player has fallen off the map and respawns it
      */
     private void CheckFall() {
         if (transform.position.y < -10f) {
-            Respawn();
+            _playerPos.RespawnAtLastCheckpoint();
+            //Respawn();
         }
     }
 
