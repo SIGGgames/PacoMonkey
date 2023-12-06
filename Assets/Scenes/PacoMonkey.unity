@@ -1773,9 +1773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5.26
-  jumpForce: 12
+  jumpForce: 15
   groundCheckRadius: 0.3
-  jumpTime: 0.2
+  maxJumps: 2
   _rigidbody2D: {fileID: 1438160113}
   groundCheck: {fileID: 652807751}
   groundLayer:

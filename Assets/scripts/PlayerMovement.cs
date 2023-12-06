@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     public float groundCheckRadius = 0.2f;
     private bool _isFacingRight = true;
 
+    [SerializeField] private int maxJumps;
+
     private bool _isJumping;
     private int _jumpCounter;
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -28,25 +30,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        _horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (IsGrounded() && !_isJumping) {
-            _jumpCounter = 0;
-        }
-        else {
-            _isJumping = false;
-        }
-
-        if (Input.GetButtonDown("Jump") && _jumpCounter < 1) {
-            if (_jumpCounter < 2) {
-                _jumpCounter++;
-                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
-                _isJumping = true;
-            }
-        }
-
-        _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
-
+        HandleMovement();
+        HandleJump();
         HandleFlip();
         CheckFall();
     }
@@ -54,7 +39,31 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate() {
         // Used to update physics
     }
-    
+
+    private void HandleMovement() {
+        _horizontal = Input.GetAxisRaw("Horizontal");
+        _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
+    }
+
+    private void HandleJump() {
+        if (IsGrounded() && !_isJumping) {
+            _jumpCounter = 0;
+        }
+        else {
+            _isJumping = false;
+        }
+
+        if (Input.GetButtonDown("Jump") && _jumpCounter < maxJumps - 1) {
+            Jump();
+        }
+    }
+
+    private void Jump() {
+        _jumpCounter++;
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
+        _isJumping = true;
+    }
+
 
     /**
      * IsGrounded(): Returns true if the player is touching the ground
@@ -62,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-    
+
     /**
      * CheckFall(): Checks if the player has fallen off the map and respawns it
      */
