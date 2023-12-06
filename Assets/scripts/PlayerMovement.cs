@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    private PlayerPos _playerPos;
+    private GameMaster gm;
 
     private void Awake() {
         // Used to initialise an object's own reference
@@ -26,7 +26,8 @@ public class PlayerMovement : MonoBehaviour {
     // Start is called before the first frame update
     private void Start() {
         // Used to use or create other object's references
-        _playerPos = GetComponent<PlayerPos>();
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        transform.position = gm.lastCheckPointPosition;
     }
 
     // Update is called once per frame
@@ -73,18 +74,15 @@ public class PlayerMovement : MonoBehaviour {
      */
     private void CheckFall() {
         if (transform.position.y < -10f) {
-            _playerPos.RespawnAtLastCheckpoint();
-            //Respawn();
+            Respawn();
         }
     }
 
     /**
-     * Respawn(): Respawns the player at the initial position
+     * Respawn(): Respawns the player at the last checkpoint
      */
     private void Respawn() {
-        Vector2 respawnCoordinates = new Vector2(0, 5);
-        transform.position = respawnCoordinates;
-        _rigidbody2D.velocity = Vector2.zero;
+        transform.position = gm.lastCheckPointPosition;
     }
 
     /**
