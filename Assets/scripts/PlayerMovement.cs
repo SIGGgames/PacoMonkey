@@ -10,9 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     public float groundCheckRadius = 0.2f;
     private bool _isFacingRight = true;
 
-    private bool _isJumping = false;
-    private float _jumpTimeCounter;
-    [SerializeField] private float jumpTime;
+    private bool _isJumping;
+    private int _jumpCounter;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -29,22 +28,20 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        // TODO: Move player movement to FixedUpdate() without breaking JUMPS!!!
         _horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Utils.GetJumpStatus() == 1 && IsGrounded()) {
-            _isJumping = true;
-            _jumpTimeCounter = jumpTime;
-            _rigidbody2D.velocity = Vector2.up * jumpForce;
+        if (IsGrounded() && !_isJumping) {
+            _jumpCounter = 0;
+        }
+        else {
+            _isJumping = false;
         }
 
-        if (Utils.GetJumpStatus() == 2 && _isJumping) {
-            if (_jumpTimeCounter > 0) {
-                _rigidbody2D.velocity = Vector2.up * jumpForce;
-                _jumpTimeCounter -= Time.deltaTime;
-            }
-            else {
-                _isJumping = false;
+        if (Input.GetButtonDown("Jump") && _jumpCounter < 1) {
+            if (_jumpCounter < 2) {
+                _jumpCounter++;
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
+                _isJumping = true;
             }
         }
 
