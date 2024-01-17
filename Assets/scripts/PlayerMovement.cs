@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
         CheckFall();
     }
 
+
     private void FixedUpdate() {
         // Used to update physics
     }
