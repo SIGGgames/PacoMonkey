@@ -96,15 +96,8 @@ public class PlayerMovement : MonoBehaviour {
      */
     private void CheckFall() {
         if (transform.position.y < DefaultVerticalFallPosition) {
-            Respawn();
+            PlayerEvents.Respawn();
         }
-    }
-
-    /**
-     * Respawn(): Respawns the player at the last checkpoint
-     */
-    private void Respawn() {
-        transform.position = gm.lastCheckPointPosition;
     }
 
     /**

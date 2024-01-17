@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,17 +27,17 @@ public class PlayerEvents : MonoBehaviour {
     /**
      * Respawn(): Respawns the player at the last checkpoint
      */
-    private void Respawn() {
-        transform.position = gm.lastCheckPointPosition;
+    public static void Respawn() {
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     /**
      * CheckDeath(): Checks if the player has died and respawns it
      */
+    [Obsolete("Obsolete")]
     private void CheckDeath() {
         if (IsPlayerDeath()) {
             Respawn();
-            playerHealth = _defaultPlayerHealth;
         }
     }
 
