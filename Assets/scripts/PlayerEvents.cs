@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerEvents : MonoBehaviour {
     [SerializeField] public int playerHealth = 3;
 
-    private const int _defaultPlayerHealth = 3;
     private GameMaster gm;
 
     // Start is called before the first frame update
@@ -28,13 +28,12 @@ public class PlayerEvents : MonoBehaviour {
      * Respawn(): Respawns the player at the last checkpoint
      */
     public static void Respawn() {
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     /**
      * CheckDeath(): Checks if the player has died and respawns it
      */
-    [Obsolete("Obsolete")]
     private void CheckDeath() {
         if (IsPlayerDeath()) {
             Respawn();
