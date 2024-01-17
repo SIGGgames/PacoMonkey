@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private int playerHealth = 3;
     private GameMaster gm;
 
     private void Awake() {
@@ -38,12 +37,6 @@ public class PlayerMovement : MonoBehaviour {
         HandleJump();
         HandleFlip();
         CheckFall();
-        CheckDeath();
-
-        // Set it on R to test the death, remove it later
-        if (Input.GetKeyDown(KeyCode.R)) {
-            DecreaseHealth();
-        }
     }
 
 
@@ -108,28 +101,6 @@ public class PlayerMovement : MonoBehaviour {
      */
     private void Respawn() {
         transform.position = gm.lastCheckPointPosition;
-    }
-
-    /**
-     * CheckDeath(): Checks if the player has died and respawns it
-     */
-    private void CheckDeath() {
-        if (IsPlayerDeath()) {
-            Respawn();
-            playerHealth = 3;
-        }
-    }
-
-    /**
-     * DecreaseHealth(): Decreases the player's health
-     */
-    private void DecreaseHealth(int amount = 1) {
-        playerHealth -= amount;
-        CheckDeath();
-    }
-
-    private bool IsPlayerDeath() {
-        return playerHealth <= 0;
     }
 
     /**
