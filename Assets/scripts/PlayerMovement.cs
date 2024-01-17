@@ -40,7 +40,10 @@ public class PlayerMovement : MonoBehaviour {
         CheckFall();
         CheckDeath();
 
-        DecreaseHealth();
+        // Set it on R to test the death, remove it later
+        if (Input.GetKeyDown(KeyCode.R)) {
+            DecreaseHealth();
+        }
     }
 
 
@@ -107,6 +110,9 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = gm.lastCheckPointPosition;
     }
 
+    /**
+     * CheckDeath(): Checks if the player has died and respawns it
+     */
     private void CheckDeath() {
         if (IsPlayerDeath()) {
             Respawn();
@@ -114,10 +120,12 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    /**
+     * DecreaseHealth(): Decreases the player's health
+     */
     private void DecreaseHealth(int amount = 1) {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            playerHealth -= amount;
-        }
+        playerHealth -= amount;
+        CheckDeath();
     }
 
     private bool IsPlayerDeath() {
