@@ -5,22 +5,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerEvents : MonoBehaviour {
-    [SerializeField] public int playerHealth = 3;
-
+    private Health playerHealth;
     private GameMaster gm;
 
     // Start is called before the first frame update
     void Start() {
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        playerHealth = GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update() {
-        CheckDeath();
-
         // Set it on R to test the death, remove it later
         if (Input.GetKeyDown(KeyCode.R)) {
-            DecreaseHealth();
+            playerHealth.TakeDamage();
+        }
+        // Set it on H to test the heal, remove it later
+        if (Input.GetKeyDown(KeyCode.H)) {
+            playerHealth.Heal();
         }
     }
 
@@ -28,27 +30,7 @@ public class PlayerEvents : MonoBehaviour {
      * Respawn(): Respawns the player at the last checkpoint
      */
     public static void Respawn() {
+        // The player health is reset in the Start() method of Health.cs
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    /**
-     * CheckDeath(): Checks if the player has died and respawns it
-     */
-    private void CheckDeath() {
-        if (IsPlayerDeath()) {
-            Respawn();
-        }
-    }
-
-    /**
-     * DecreaseHealth(): Decreases the player's health
-     */
-    private void DecreaseHealth(int amount = 1) {
-        playerHealth -= amount;
-        CheckDeath();
-    }
-
-    private bool IsPlayerDeath() {
-        return playerHealth <= 0;
     }
 }
