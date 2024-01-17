@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerEvents : MonoBehaviour {
     [SerializeField] public int playerHealth = 3;
-    
-    private int _defaultPlayerHealth = 3;
+
+    private const int _defaultPlayerHealth = 3;
     private GameMaster gm;
 
     // Start is called before the first frame update

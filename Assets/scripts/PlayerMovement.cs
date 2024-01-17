@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private LayerMask groundLayer;
     private GameMaster gm;
 
+    // This is the default vertical position where the player will no longer be alive
+    private const float DefaultVerticalFallPosition = -10f;
+
+
     private void Awake() {
         // Used to initialise an object's own reference
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -91,7 +95,7 @@ public class PlayerMovement : MonoBehaviour {
      * CheckFall(): Checks if the player has fallen off the map and respawns it
      */
     private void CheckFall() {
-        if (transform.position.y < -10f) {
+        if (transform.position.y < DefaultVerticalFallPosition) {
             Respawn();
         }
     }
