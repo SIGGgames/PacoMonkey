@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerEvents : MonoBehaviour {
-    [SerializeField] private int playerHealth = 3;
+    [SerializeField] public int playerHealth = 3;
+    
+    private int _defaultPlayerHealth = 3;
     private GameMaster gm;
 
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class PlayerEvents : MonoBehaviour {
     private void CheckDeath() {
         if (IsPlayerDeath()) {
             Respawn();
-            playerHealth = 3;
+            playerHealth = _defaultPlayerHealth;
         }
     }
 
