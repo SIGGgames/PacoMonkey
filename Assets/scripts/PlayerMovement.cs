@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    // TODO: Fix double jump
-    // TODO: Set border for player movement
-    // TODO: Set animation for player movement
-    // TODO: Fix player movement when jumping
+    // Start is called before the first frame update
+    private void Start() { // Used to use or create other object's references
+    
+    }
 
     // Update is called once per frame
     private void Update() {
