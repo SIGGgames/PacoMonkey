@@ -21,4 +21,17 @@ public class Utils : MonoBehaviour {
     public static bool GetJumpInput() {
         return Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
     }
+
+    public static bool IsNull(object obj) {
+        bool isNull = obj == null;
+        if (isNull) {
+            Debug.Log("The object " + obj + " is null");
+        }
+        return isNull;
+    }
+    
+    // ReSharper disable Unity.PerformanceAnalysis
+    public static bool IsNotNull(object obj) {
+        return !IsNull(obj);
+    }
 }
