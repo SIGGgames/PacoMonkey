@@ -86,21 +86,21 @@ public class PlayerMovement : MonoBehaviour {
     /**
     * Jump(): Makes the player jump
     */
-    private void Jump() {
+    private void Jump(float extraJumpForce = 1f) {
         _jumpCounter++;
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, GetJumpForce());
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, GetJumpForce(extraJumpForce));
     }
 
     /**
-     * GetJumpForce(): Returns the jump force of the player
+     * GetJumpForce(): Returns the jump force of the player depending on its age (young or old)
      */
-    private float GetJumpForce() {
+    private float GetJumpForce(float extraJumpForce) {
         if (isYoung) {
             const float multiplier = 1 / 3f; // 1/3 is the ratio between the jump force of the old and young player
-            return jumpForce * multiplier;
+            return jumpForce * (1 + multiplier) * extraJumpForce;
         }
 
-        return jumpForce;
+        return jumpForce + 2 * extraJumpForce;
     }
 
 
