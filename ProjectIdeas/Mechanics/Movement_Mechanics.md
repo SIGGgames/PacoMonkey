@@ -19,11 +19,11 @@ player is on 'hold', ends up climbing the surface.
 Player must maintain the button pressed to keep running and choose a direction to move ('move_right' or 'move_left'); 
 when running, the player's velocity doubles.
 - **YoungVersion (YV):** YV velocity is lower than GV.
-- **GrownVersion (GV):** velocity gives the sensation of speed with a ratio 1.3 higher than YV.
+- **GrownVersion (GV):** velocity gives the sensation of speed (higher than YV).
 
 #### Jump
 The height of the jump depends on the intensity/time of the button press; the longer the pressing, the higher the jump.
-- **YV:** YV jumping gives the sensation of lightness with a ratio 1.3 higher than GV.
+- **YV:** YV jumping gives the sensation of lightness (higher than GV).
 - **GV:** maximum height is lower than YV.
 
 #### Double jump (YoungVersion)
