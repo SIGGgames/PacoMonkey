@@ -8,6 +8,15 @@ The game follows the story of Pacomonkey's life, a mandrill who, since childhood
 avenge her. Throughout his adventure, he faces several monkeys from different lands, looks for clues to find out more 
 about the identity and the location of the killer, all while trying to grow and survive in a hostile world.
 
+### General Aesthetics
+Pixel Art requires colorful characters and backgrounds. The characters, specially the important ones, should also have a
+recognizable shape.
+
+- Tiles size: 32x32
+- Screen size: 360x640
+
+(...) <- General_Aesthetics.md
+
 ### Game Genre
 Adventure, platform and survival.
 
@@ -354,5 +363,6 @@ recognizable shape.
 - <u>Unity</u> *(2022.3.14f1)*: Motor engine.
 - <u>JetBrains Rider</u> *(2023.2.3)*: Code refactoring tool in C# for Unity.
 - <u>GitHub</u> and <u>GitHub Desktop</u>: Distributed revision control and source code administration.
+- <u>Trello</u>: Project Management and collaboration tool to organize teams and work with an Agile Board.
 - <u>LibreSprite</u> *(v1.2-973d0e3d-SDL)*: Animated sprite editor & pixel art tool.
 - <u>ChatGPT4</u>: AI system used for design and structural guidance.
