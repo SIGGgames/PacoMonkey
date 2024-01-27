@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce;
     [SerializeField] private int maxJumps;
     private bool _isFacingRight = true;
+    [SerializeField] bool isYoung = true;
 
     private bool _isJumping = false;
     private float _jumpTimeCounter;
@@ -60,6 +61,13 @@ public class PlayerMovement : MonoBehaviour {
      * HandleJump(): Handles the player's jump
      */
     private void HandleJump() {
+        if (!isYoung) {
+            maxJumps = 1;
+        }
+        else {
+            maxJumps = 2;
+        }
+
         if (IsGrounded()) {
             if (_isJumping) {
                 _isJumping = false;
@@ -80,7 +88,19 @@ public class PlayerMovement : MonoBehaviour {
     */
     private void Jump() {
         _jumpCounter++;
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, GetJumpForce());
+    }
+
+    /**
+     * GetJumpForce(): Returns the jump force of the player
+     */
+    private float GetJumpForce() {
+        if (isYoung) {
+            const float multiplier = 1 / 3f; // 1/3 is the ratio between the jump force of the old and young player
+            return jumpForce * multiplier;
+        }
+
+        return jumpForce;
     }
 
 
