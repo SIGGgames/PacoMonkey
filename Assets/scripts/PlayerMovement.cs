@@ -69,7 +69,6 @@ public class PlayerMovement : MonoBehaviour {
             moveSpeedX = DEFAULT_MOVE_SPEED;
         }
 
-        Debug.Log("El moveSpeed es: " + moveSpeedX);
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeedX, _rigidbody2D.velocity.y);
     }
 
