@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private const float DefaultMoveSpeed = 3f;
+
     // This is the default vertical position where the player will no longer be alive
     private const float DefaultVerticalFallPosition = -10f;
-    private const float YoungJumpForceMultiplier = 1.3f; // 30% more jump force (young)
-    private const float YoungSpeedXMultiplier = 1.8f; // 20% more speed when running (young)
-    private const float OldSpeedXMultiplier = 2.4f; // 50% more speed when running (old)
+    private const float YoungJumpForceMultiplier = 1.3f; // 30% more jump force when jumping (young)
+    private const float YoungSpeedXMultiplier = 1.8f; // 80% more speed when running (young)
+    private const float OldSpeedXMultiplier = 2.4f; // 140% more speed when running (old)
+    private const float PreJumpDistance = 3.5f; // Distance from the ground to allow pre-jumping
 
+    private bool _isPreJumping = false;
     private float _horizontal;
     [SerializeField] float moveSpeedX = DefaultMoveSpeed;
     public float groundCheckRadius = 0.2f;
@@ -76,7 +79,11 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (Utils.GetJumpInput() && _jumpCounter < maxJumps) {
-            Jump();
+            if (IsGrounded()) {
+                Jump();
+            } else if (_jumpCounter < maxJumps && IsNearGround()) {
+                _isPreJumping = true;
+            }
         }
     }
 
@@ -91,21 +98,20 @@ public class PlayerMovement : MonoBehaviour {
      * HandleJump(): Handles the player's jump
      */
     private void HandleJump() {
-        if (!isYoung) {
-            maxJumps = 1;
-        }
-        else {
-            maxJumps = 2;
-        }
+        maxJumps = isYoung ? 2 : 1;
 
         if (IsGrounded()) {
-            if (_isJumping) {
-                _isJumping = false;
-                _jumpCounter = 0;
+            _isJumping = false;
+            if (_isPreJumping) {
+                _isPreJumping = false;
+                Jump();
             }
-        }
-        else {
+        } else {
             _isJumping = true;
+        }
+    
+        if (IsGrounded() && !_isJumping) {
+            _jumpCounter = 0;
         }
     }
 
@@ -113,8 +119,10 @@ public class PlayerMovement : MonoBehaviour {
     * Jump(): Makes the player jump
     */
     private void Jump(float extraJumpForce = 1f) {
-        _jumpCounter++;
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, GetJumpForce(extraJumpForce));
+        if (!_isJumping) {
+            _jumpCounter++;
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, GetJumpForce(extraJumpForce));
+        }
     }
 
     /**
@@ -134,6 +142,14 @@ public class PlayerMovement : MonoBehaviour {
      */
     private bool IsGrounded() {
         return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    /**
+     * IsNearGround(): Returns true if the player is near the ground
+     */
+    private bool IsNearGround() {
+        RaycastHit2D raycastHit = Physics2D.Raycast(groundCheck.position, Vector2.down, PreJumpDistance, groundLayer);
+        return raycastHit.collider != null;
     }
 
     /**

@@ -2613,7 +2613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedX: 3
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.2
   jumpForce: 15
   maxJumps: 2
   isYoung: 1
