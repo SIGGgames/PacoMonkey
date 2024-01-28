@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private float _horizontal;
-    private static float DEFAULT_MOVE_SPEED = 5f;
-    
+    private const float DEFAULT_MOVE_SPEED = 5f;
+
     [SerializeField] float moveSpeedX = DEFAULT_MOVE_SPEED;
     public float groundCheckRadius = 0.2f;
     public float jumpForce;
@@ -29,12 +29,12 @@ public class PlayerMovement : MonoBehaviour {
     private void Awake() {
         // Used to initialise an object's own reference
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
 
     // Start is called before the first frame update
     private void Start() {
         // Used to use or create other object's references
-        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         transform.position = gm.lastCheckPointPosition;
     }
 
@@ -56,12 +56,20 @@ public class PlayerMovement : MonoBehaviour {
      */
     private void HandleMovement() {
         _horizontal = Input.GetAxisRaw("Horizontal");
-        if (isYoung) {
-            moveSpeedX = DEFAULT_MOVE_SPEED;
+
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            if (isYoung) {
+                moveSpeedX = DEFAULT_MOVE_SPEED * 1.5f;
+            }
+            else {
+                moveSpeedX = DEFAULT_MOVE_SPEED * 1.7f;
+            }
         }
         else {
-            moveSpeedX = DEFAULT_MOVE_SPEED * 1.5f;
+            moveSpeedX = DEFAULT_MOVE_SPEED;
         }
+
+        Debug.Log("El moveSpeed es: " + moveSpeedX);
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeedX, _rigidbody2D.velocity.y);
     }
 
