@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     private float _horizontal;
     private const float DEFAULT_MOVE_SPEED = 5f;
+    // This is the default vertical position where the player will no longer be alive
+    private const float DEFAULTVERTICALFALLPOSITION = -10f;
 
     [SerializeField] float moveSpeedX = DEFAULT_MOVE_SPEED;
     public float groundCheckRadius = 0.2f;
@@ -22,12 +24,9 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private LayerMask groundLayer;
     private GameMaster gm;
 
-    // This is the default vertical position where the player will no longer be alive
-    private const float DefaultVerticalFallPosition = -10f;
 
 
     private void Awake() {
-        // Used to initialise an object's own reference
         _rigidbody2D = GetComponent<Rigidbody2D>();
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
@@ -38,37 +37,51 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = gm.lastCheckPointPosition;
     }
 
-    // Update is called once per frame
+    /**
+     * Update(): Used to update the game per frame
+     */
     private void Update() {
-        HandleMovement();
-        HandleJump();
+        HandleInput();
         HandleFlip();
         CheckFall();
     }
 
-
+    /**
+     * FixedUpdate(): Used to update physics
+     */
     private void FixedUpdate() {
         // Used to update physics
+        HandleMovement();
+        HandleJump();
     }
 
     /**
-     * HandleMovement(): Handles the player's movement
+     * HandleInput(): Handles the player's input
      */
-    private void HandleMovement() {
+    private void HandleInput() {
         _horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             if (isYoung) {
-                moveSpeedX = DEFAULT_MOVE_SPEED * 1.5f;
+                moveSpeedX = DEFAULT_MOVE_SPEED * 1.2f;
             }
             else {
-                moveSpeedX = DEFAULT_MOVE_SPEED * 1.7f;
+                moveSpeedX = DEFAULT_MOVE_SPEED * 1.5f;
             }
         }
         else {
             moveSpeedX = DEFAULT_MOVE_SPEED;
         }
 
+        if (Utils.GetJumpInput() && _jumpCounter < maxJumps) {
+            Jump();
+        }
+    }
+
+    /**
+     * HandleMovement(): Handles the player's movement
+     */
+    private void HandleMovement() {
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeedX, _rigidbody2D.velocity.y);
     }
 
@@ -91,10 +104,6 @@ public class PlayerMovement : MonoBehaviour {
         }
         else {
             _isJumping = true;
-        }
-
-        if (Utils.GetJumpInput() && _jumpCounter < maxJumps) {
-            Jump();
         }
     }
 
@@ -130,7 +139,7 @@ public class PlayerMovement : MonoBehaviour {
      * CheckFall(): Checks if the player has fallen off the map and respawns it
      */
     private void CheckFall() {
-        if (transform.position.y < DefaultVerticalFallPosition) {
+        if (transform.position.y < DEFAULTVERTICALFALLPOSITION) {
             PlayerEvents.Respawn();
         }
     }
