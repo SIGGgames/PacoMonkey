@@ -53,7 +53,9 @@ git checkout -b feature/NewFeature
 ```sh
 git commit -m 'feat: add new feature'
 ```
-Note: We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+
+> [!NOTE]  
+> We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
 4. Push to the branch: 
 ```sh
