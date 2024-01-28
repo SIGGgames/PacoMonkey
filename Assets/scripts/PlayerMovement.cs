@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     private float _horizontal;
-    public float moveSpeed;
+    private static float DEFAULT_MOVE_SPEED = 5f;
+    
+    [SerializeField] float moveSpeed = DEFAULT_MOVE_SPEED;
     public float groundCheckRadius = 0.2f;
     public float jumpForce;
     [SerializeField] private int maxJumps;
@@ -54,6 +56,12 @@ public class PlayerMovement : MonoBehaviour {
      */
     private void HandleMovement() {
         _horizontal = Input.GetAxisRaw("Horizontal");
+        if (isYoung) {
+            moveSpeed = DEFAULT_MOVE_SPEED;
+        }
+        else {
+            moveSpeed = DEFAULT_MOVE_SPEED * 1.5f;
+        }
         _rigidbody2D.velocity = new Vector2(_horizontal * moveSpeed, _rigidbody2D.velocity.y);
     }
 
