@@ -4,12 +4,15 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    private float _horizontal;
-    private const float DEFAULT_MOVE_SPEED = 5f;
+    private const float DefaultMoveSpeed = 5f;
     // This is the default vertical position where the player will no longer be alive
-    private const float DEFAULTVERTICALFALLPOSITION = -10f;
+    private const float DefaultVerticalFallPosition = -10f;
+    private const float YoungJumpForceMultiplier = 1.3f; // 30% more jump force (young)
+    private const float YoungSpeedXMultiplier = 1.2f; // 20% more speed when running (young)
+    private const float OldSpeedXMultiplier = 1.5f; // 50% more speed when running (old)
 
-    [SerializeField] float moveSpeedX = DEFAULT_MOVE_SPEED;
+    private float _horizontal;
+    [SerializeField] float moveSpeedX = DefaultMoveSpeed;
     public float groundCheckRadius = 0.2f;
     public float jumpForce;
     [SerializeField] private int maxJumps;
@@ -63,14 +66,14 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             if (isYoung) {
-                moveSpeedX = DEFAULT_MOVE_SPEED * 1.2f;
+                moveSpeedX = DefaultMoveSpeed * YoungSpeedXMultiplier;
             }
             else {
-                moveSpeedX = DEFAULT_MOVE_SPEED * 1.5f;
+                moveSpeedX = DefaultMoveSpeed * OldSpeedXMultiplier;
             }
         }
         else {
-            moveSpeedX = DEFAULT_MOVE_SPEED;
+            moveSpeedX = DefaultMoveSpeed;
         }
 
         if (Utils.GetJumpInput() && _jumpCounter < maxJumps) {
@@ -120,8 +123,7 @@ public class PlayerMovement : MonoBehaviour {
      */
     private float GetJumpForce(float extraJumpForce) {
         if (isYoung) {
-            const float multiplier = 1 / 3f; // 1/3 is the ratio between the jump force of the old and young player
-            return jumpForce * (1 + multiplier) * extraJumpForce;
+            return jumpForce * YoungJumpForceMultiplier * extraJumpForce;
         }
 
         return jumpForce + 2 * extraJumpForce;
@@ -139,7 +141,7 @@ public class PlayerMovement : MonoBehaviour {
      * CheckFall(): Checks if the player has fallen off the map and respawns it
      */
     private void CheckFall() {
-        if (transform.position.y < DEFAULTVERTICALFALLPOSITION) {
+        if (transform.position.y < DefaultVerticalFallPosition) {
             PlayerEvents.Respawn();
         }
     }
