@@ -20,6 +20,7 @@ Player must maintain the button pressed to keep running and choose a direction t
 when running, the player's velocity doubles.
 - **YoungVersion (YV):** YV velocity is lower than GV.
 - **GrownVersion (GV):** velocity gives the sensation of speed (higher than YV).
+  - **Delay:** when starting to run, GV has a short delay to simulate a heavy but strong figure preparing to sprint.
 
 #### Jump
 The height of the jump depends on the intensity/time of the button press; the longer the pressing, the higher the jump.
