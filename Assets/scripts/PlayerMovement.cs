@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    private const float DefaultMoveSpeed = 5f;
+    private const float DefaultMoveSpeed = 3f;
     // This is the default vertical position where the player will no longer be alive
     private const float DefaultVerticalFallPosition = -10f;
     private const float YoungJumpForceMultiplier = 1.3f; // 30% more jump force (young)
-    private const float YoungSpeedXMultiplier = 1.2f; // 20% more speed when running (young)
-    private const float OldSpeedXMultiplier = 1.5f; // 50% more speed when running (old)
+    private const float YoungSpeedXMultiplier = 1.8f; // 20% more speed when running (young)
+    private const float OldSpeedXMultiplier = 2.4f; // 50% more speed when running (old)
 
     private float _horizontal;
     [SerializeField] float moveSpeedX = DefaultMoveSpeed;
@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     private GameMaster gm;
-
 
 
     private void Awake() {
