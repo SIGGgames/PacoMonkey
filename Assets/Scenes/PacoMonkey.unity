@@ -2633,10 +2633,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e146b4999188409b74e45508540de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5.26
-  groundCheckRadius: 0.3
+  moveSpeedX: 3
+  groundCheckRadius: 0.2
   jumpForce: 15
   maxJumps: 2
+  isYoung: 1
   _rigidbody2D: {fileID: 1438160113}
   groundCheck: {fileID: 652807751}
   groundLayer:
