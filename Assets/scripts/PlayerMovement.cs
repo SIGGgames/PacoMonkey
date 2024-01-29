@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     private const float YoungSpeedXMultiplier = 1.8f; // 80% more speed when running (young)
     private const float OldSpeedXMultiplier = 2.4f; // 140% more speed when running (old)
     private const float PreJumpDistance = 3.5f; // Distance from the ground to allow pre-jumping
+    private const float CrouchedSpeedXMultiplier = 0.5f; // 50% less speed when crouching
 
     private bool _isPreJumping = false;
     private float _horizontal;
@@ -21,6 +22,12 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private int maxJumps;
     private bool _isFacingRight = true;
     [SerializeField] bool isYoung = true;
+
+    [SerializeField] private bool isCrouching = false;
+
+    // Different colliders for standing and crouching
+    [SerializeField] private Collider2D standingCollider;
+    [SerializeField] private Collider2D crouchingCollider;
 
     private bool _isJumping = false;
     private float _jumpTimeCounter;
@@ -47,6 +54,7 @@ public class PlayerMovement : MonoBehaviour {
      */
     private void Update() {
         HandleInput();
+        HandleCrouch();
         HandleFlip();
         CheckFall();
     }
@@ -66,25 +74,32 @@ public class PlayerMovement : MonoBehaviour {
     private void HandleInput() {
         _horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            if (isYoung) {
-                moveSpeedX = DefaultMoveSpeed * YoungSpeedXMultiplier;
-            }
-            else {
-                moveSpeedX = DefaultMoveSpeed * OldSpeedXMultiplier;
-            }
-        }
-        else {
-            moveSpeedX = DefaultMoveSpeed;
-        }
+        moveSpeedX = GetMoveSpeedX();
 
         if (Utils.GetJumpInput() && _jumpCounter < maxJumps) {
             if (IsGrounded()) {
                 Jump();
-            } else if (_jumpCounter < maxJumps && IsNearGround()) {
+            }
+            else if (_jumpCounter < maxJumps && IsNearGround()) {
                 _isPreJumping = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.DownArrow)) {
+            isCrouching = !isCrouching;
+        }
+    }
+
+    private float GetMoveSpeedX() {
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            if (isYoung) {
+                return DefaultMoveSpeed * YoungSpeedXMultiplier;
+            }
+
+            return DefaultMoveSpeed * OldSpeedXMultiplier;
+        }
+
+        return DefaultMoveSpeed;
     }
 
     /**
@@ -106,10 +121,11 @@ public class PlayerMovement : MonoBehaviour {
                 _isPreJumping = false;
                 Jump();
             }
-        } else {
+        }
+        else {
             _isJumping = true;
         }
-    
+
         if (IsGrounded() && !_isJumping) {
             _jumpCounter = 0;
         }
@@ -150,6 +166,20 @@ public class PlayerMovement : MonoBehaviour {
     private bool IsNearGround() {
         RaycastHit2D raycastHit = Physics2D.Raycast(groundCheck.position, Vector2.down, PreJumpDistance, groundLayer);
         return raycastHit.collider != null;
+    }
+
+
+    private void HandleCrouch() {
+        if (isCrouching) {
+            standingCollider.enabled = false;
+            crouchingCollider.enabled = true;
+            moveSpeedX *= CrouchedSpeedXMultiplier;
+        }
+        else {
+            standingCollider.enabled = true;
+            crouchingCollider.enabled = false;
+            moveSpeedX = GetMoveSpeedX();
+        }
     }
 
     /**
